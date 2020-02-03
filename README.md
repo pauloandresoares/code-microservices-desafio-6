@@ -17,5 +17,45 @@
 
 ### 3) Fazer teste usando requisições através de um looping e analisar o autoscaler.
 
-Entrega:
+**Entrega**:
 
+**3.1 - Execuçcão da build:**
+
+![Build](./cloud_build_hpa.png )
+
+**3.2 - Execuçcão dos recursos:**
+
+```sh
+kubectl apply -f deployment.yaml
+
+kubectl apply -f service.yaml
+
+kubectl apply -f hpa.yaml
+```
+**3.3 - Teste do HPA:**
+
+Primeiro fazer um Port Forward: 
+
+```sh
+kubectl --namespace default port-forward <NOME_DO_POD> 8080:80
+```
+
+Em seguida executar o comando:
+
+```sh
+while true; do wget -q -O- http://localhost:8080; done;
+```
+![test](./test.png )
+
+
+Abrir outro terminal e executar o comando:
+```sh
+watch -c kubectl get all -n default
+```
+
+E observar o deployment **deployment.apps/go-hpa-server** 
+
+```sh
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/go-hpa-server   6/6     6            6           17m
+```
