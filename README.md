@@ -19,11 +19,15 @@
 
 **Entrega**:
 
-**3.1 - Execuçcão da build:**
+**3.1 - Imagem no Docker Hub:**
+
+[https://hub.docker.com/repository/docker/pauloandresoares/go-hpa](https://hub.docker.com/repository/docker/pauloandresoares/go-hpa )
+
+**3.2 - Execuçcão da build:**
 
 ![Build](./cloud_build_hpa.png )
 
-**3.2 - Execuçcão dos recursos:**
+**3.3 - Execuçcão dos recursos:**
 
 ```sh
 kubectl apply -f deployment.yaml
@@ -32,7 +36,7 @@ kubectl apply -f service.yaml
 
 kubectl apply -f hpa.yaml
 ```
-**3.3 - Teste do HPA:**
+**3.4 - Teste do HPA:**
 
 Primeiro fazer um Port Forward: 
 
