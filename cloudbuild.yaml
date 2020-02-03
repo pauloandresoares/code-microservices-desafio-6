@@ -1,5 +1,6 @@
 steps:
 
+
 - id: "Instalando aplicação"
   name: 'gcr.io/cloud-builders/go'
   args: ['install', 'app']

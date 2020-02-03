@@ -1,4 +1,4 @@
-# Code Education - desafio 5 - Kubernetes e hpa
+# Code Education - desafio 6 - Kubernetes e hpa
 
 ### 1) Implementar algoritimo em Go Lang (looping somando a raiz quadrada):
 
