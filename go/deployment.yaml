@@ -1,0 +1,36 @@
+apiVersion: apps/v1beta1
+
+kind: Deployment
+
+metadata:
+  name: go-hpa-server
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: go-hpa-server
+      tier: go-hpa
+
+  template:
+    metadata:
+      labels:
+        app: go-hpa-server
+        tier: go-hpa
+
+    spec:
+      containers:
+      - name: go-hpa
+
+        image: pauloandresoares/go-hpa
+
+        resources:
+          requests:
+            cpu: "50m"
+
+          limits:
+            cpu: "100m"
+
+        ports:
+        - containerPort: 80
